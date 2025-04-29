@@ -5,23 +5,22 @@ const result = matches ? matches.length : 0;
 let position = sentence.search(/review/i);
 const positions = sentence.search(/reviews/i);
 position = position >= 0 ? position : 'not found';
-// console.log(position);
+console.log(position);
 // console.log(positions);
 // console.log(result)
-// console.log(matches)
+console.log(matches);
 
+// Linear search
 function linearSearch(arr, val) {
     const length = arr.length;
-
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         if (arr[i] === val) {
             return i;
         }
     }
     return 'Not Found!!!';
 }
-
-// console.log(linearSearch(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'], 't'));
+console.log(linearSearch(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'], 'h'));
 
 // Find the largest element in an array
 
@@ -277,16 +276,16 @@ function getMax(a, b) {
 }
 console.log(getMax(12, 12));
 
+
 // Factorial number
 function getFact(num) {
     let fact = 1;
     for (let i = 1; i <= num; i++) {
         fact = fact * i;
-        console.log(i);
     }
     return fact;
 }
-console.log(getFact(5));
+console.log(getFact(4));
 
 // Write a function that accepts a string and returns its reverse
 function abcd(val) {
@@ -305,14 +304,12 @@ function findMax(arr) {
     }
     return arr[max];
 }
-console.log(findMax([12, 34, 56, 23]));
-
+console.log(findMax([12, 23, 45, 44, 11]));
 
 // Write a javascript function get the number of occurrences of each letter in specified string. (ekta string er moddhe kon char koybar ashse sheta find kora)
 
 function occurrence(str) {
     let occurrences = {};
-
     str.split('').forEach(function (e) {
         if (occurrences.hasOwnProperty(e) === false) {
             occurrences[e] = 1;
@@ -335,7 +332,7 @@ function add(arr) {
 }
 console.log(add([1, 2, 3, 4, 5]));
 
-
+// Finding Palindrome
 function getPal(str) {
     const reversed = str.split('').reverse().join('');
     if (reversed === str) {
@@ -394,14 +391,40 @@ console.log(roy.fullName());
 
 const number3 = [1, 2, 3, 4];
 
-const numIterator = number3[Symbol.iterator]()
-console.log(numIterator.next())
-console.log(numIterator.next())
-console.log(numIterator.next())
-console.log(numIterator.next())
-console.log(numIterator.next())
+const numIterator = number3[Symbol.iterator]();
+console.log(numIterator.next());
+console.log(numIterator.next());
+console.log(numIterator.next());
+console.log(numIterator.next());
+console.log(numIterator.next());
 
 // for (let n of number3) {
 //     console.log(n);
 // }
 // console.dir(number3)
+
+
+// Write a javascript function which accepts an argument and returns the type
+// Note: There are six possible values that type of returns: object, boolean, function, number, string and undefined
+
+function typeTeller(str) {
+    return typeof str;
+}
+console.log(typeTeller([]));
+console.log(typeTeller(12));
+console.log(typeTeller('12'));
+console.log(typeTeller(true));
+console.log(typeTeller(undefined));
+console.log(typeTeller(function () { }));
+
+// Self Invoke
+
+(function () {
+    console.log('This is the best solution');
+    console.log(1 / 0);
+    console.log(NaN ** 0)
+    console.log(4 > 5)
+    console.log(typeof Symbol("id"))
+    console.log(typeof alert)
+    console.log(typeof Math)
+})();
